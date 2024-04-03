@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kantorek walut</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        label {
+            font-weight: bold;
+        }
+        input[type="number"] {
+            width: 100px;
+            padding: 5px;
+            
+            
+            rgin-right: 10px;
+        }
+        button {
+            padding: 8px 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h2>Kantor Online</h2>
+    <label for="plnAmount">Kwota w PLN:</label>
+    <input type="number" id="plnAmount" min="0" step="0.01"><br><br>
+    
+    <button onclick="calculate()">Przelicz</button><br><br>
+
+    <div id="results"></div>
+
+    <script>
+        function calculate() {
+            var plnAmount = document.getElementById("plnAmount").value;
+            var usdRate = 0.26; // aktualny kurs USD w PLN
+            var gbpRate = 0.19; // aktualny kurs GBP w PLN
+            var eurRate = 0.23; // aktualny kurs EUR w PLN
+            var chfRate = 0.24; // aktualny kurs CHF w PLN
+
+            var usdAmount = (plnAmount / usdRate).toFixed(2);
+            var gbpAmount = (plnAmount / gbpRate).toFixed(2);
+            var eurAmount = (plnAmount / eurRate).toFixed(2);
+            var chfAmount = (plnAmount / chfRate).toFixed(2);
+
+            document.getElementById("results").innerHTML = "<h3>Wyniki:</h3>" +
+                "<p>USD: " + usdAmount + "</p>" +
+                "<p>GBP: " + gbpAmount + "</p>" +
+                "<p>EUR: " + eurAmount + "</p>" +
+                "<p>CHF: " + chfAmount + "</p>";
+        }
+    </script>
+</body>
+</html>

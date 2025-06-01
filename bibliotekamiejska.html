@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteka Miejska</title>
+    <style>
+        body {
+            background-color: #f0f8ff;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: large;
+            color: #333;
+            background-image: url("library-background.jpg");
+            background-size: cover;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            background-color: rgba(70, 130, 180, 0.9);
+            color: white;
+        }
+
+        #divWithbuttons {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .buttons {
+            background-color: #4682b4;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .buttons:hover {
+            background-color: #5f9ea0;
+        }
+
+        #logo {
+            text-align: center;
+        }
+
+        #logo h1 {
+            font-size: 2.5rem;
+            margin: 0;
+        }
+
+        #tickets {
+            background-color: #ff6347;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        #toShop {
+            background-color: #ff4500;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        main {
+            padding: 2rem;
+            background-color: rgba(255, 255, 255, 0.9);
+            margin: 1rem;
+            border-radius: 10px;
+        }
+
+        #picturesOfBooks {
+            margin: 2rem 0;
+        }
+
+        #gallery {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        #gallery td {
+            padding: 0.5rem;
+            text-align: center;
+        }
+
+        .pctBooks {
+            width: 200px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+        }
+
+        .pctBooks:hover {
+            transform: scale(1.05);
+        }
+
+        .mainItems {
+            background-color: #e6e6fa;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        #mapAndInfo {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        #map {
+            flex: 1;
+        }
+
+        #map img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 5px;
+        }
+
+        #textAboutMap {
+            flex: 2;
+            padding: 1rem;
+            background-color: #f5f5f5;
+            border-radius: 5px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: rgba(70, 130, 180, 0.9);
+            color: white;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            #mapAndInfo {
+                flex-direction: column;
+            }
+            
+            #gallery td {
+                display: block;
+                margin-bottom: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div id="divWithbuttons">
+            <a href="libraryMain.php"><button class="buttons">Start</button></a><br>
+            <a href="loginPage.php"><button class="buttons">Log in</button></a><br>
+            <a href="loginPage.php"><button class="buttons">Rezerwacje</button></a><br>
+            <a href="logoutPage.php"><button class="buttons">Log out</button></a><br>
+        </div>
+
+        <div id="logo">
+            <h1><b>Biblioteka Miejska</b></h1>
+            <p><b>Wiedza i kultura dla każdego!</b></p>
+        </div>
+
+        <div id="tickets">
+            <p>Zapisz się teraz i otrzymaj kartę biblioteczną za darmo!
+                <a href="loginPage.php"><button type="submit" id="toShop">Zapisz się</button></a>
+            </p>
+        </div>
+    </header>
+
+    <main>
+        <div id="picturesOfBooks">
+            <table id="gallery">
+                <tr>
+                    <td><img src="book1.jpg" alt="Książka" class="pctBooks"></td>
+                    <td><img src="book2.jpg" alt="Książka" class="pctBooks"></td>
+                    <td><img src="book3.jpg" alt="Książka" class="pctBooks"></td>
+                </tr>
+                <tr>
+                    <td><img src="book4.jpg" alt="Książka" class="pctBooks"></td>
+                    <td><img src="book5.jpg" alt="Książka" class="pctBooks"></td>
+                    <td><img src="book6.jpg" alt="Książka" class="pctBooks"></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="mainItems">
+            <h2>Godziny otwarcia</h2>
+            <p>Poniedziałek - Piątek: 8:00 - 20:00</p>
+            <p>Sobota: 9:00 - 15:00</p>
+            <p>Niedziela: Zamknięte</p>
+        </div>
+
+        <div class="mainItems">
+            <h2>O nas</h2>
+            <p>Nasza biblioteka istnieje od 1950 roku i posiada w swoich zbiorach ponad 100 000 książek, czasopism i multimediów. Organizujemy regularne spotkania autorskie, warsztaty i kluby czytelnicze.</p>
+        </div>
+
+        <div class="mainItems">
+            <h2>Nowości</h2>
+            <p>Sprawdź nasze najnowsze nabytki w dziale nowości. Co tydzień aktualizujemy listę nowych pozycji dostępnych dla czytelników.</p>
+        </div>
+
+        <div id="mapAndInfo">
+            <h2>Mapa i lokalizacja:</h2>
+            <div id="map">
+                <img src="library-map.png" alt="Mapa biblioteki">
+            </div>
+            <div id="textAboutMap">
+                <p>
+                    Nazwa: Biblioteka Miejska<br>
+                    Adres: ul. Książkowa 123<br>
+                    Miasto: Warszawa<br>
+                    Kod pocztowy: 00-001<br>
+                    Telefon: +48 22 123 45 67<br>
+                    Email: kontakt@biblioteka.example.com<br><br>
+                    
+                    Znajdujemy się w centrum miasta, w pobliżu głównego rynku. Budynek biblioteki to zabytkowy gmach z początku XX wieku, łatwo rozpoznawalny dzięki charakterystycznej czerwonej cegle i wysokim oknom.
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>Biblioteka Miejska &copy; 2023</p>
+        <p>Projekt współfinansowany przez Ministerstwo Kultury i Dziedzictwa Narodowego</p>
+    </footer>
+</body>
+</html>
